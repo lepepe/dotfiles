@@ -242,12 +242,12 @@ URxvt.keysym.Shift-Control-Down:  \033[1;6B
 ! Rofi setup !
 ! Enable the extended coloring options
 rofi.color-enabled: true
-!                  bg       border   separator
-rofi.color-window: #000000, #333366, #333399
-!                  bg       fg       bg-alt   hl-bg    hl-fg
-rofi.color-normal: #000000, #ccffff, #333399, #0066ff, #ccffff
-rofi.color-active: #0066ff, #ccffff, #333399, #693A8C, #ccffff
-rofi.color-urgent: #0066ff, #ccffff, #333399, #693A8C, #ccffff
+!                  bg               border      separator
+rofi.color-window: argb:c82d303b,   #333366,    #333399
+!                  bg               fg          bg-alt      hl-bg       hl-fg
+rofi.color-normal: argb:c82d303b,   #ccffff,    #333399,    #0066ff,    #ccffff
+rofi.color-active: #0066ff,         #ccffff,    #333399,    #693A8C,    #ccffff
+rofi.color-urgent: #0066ff,         #ccffff,    #333399,    #693A8C,    #ccffff
 
 rofi.separator-style: solid
 rofi.sidebar-mode: true
