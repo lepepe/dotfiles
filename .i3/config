@@ -225,6 +225,7 @@ for_window [class="whatsdesk"] floating enable
 for_window [class="Simplenote"] floating enable
 for_window [class="zoom"] floating enable
 for_window [class="Signal"] floating enable
+for_window [class="Jitsi Meet"] floating enable
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
@@ -329,34 +330,36 @@ set_from_resource $term_color13    color13
 set_from_resource $term_color14    color14
 set_from_resource $term_color15    color15
 
+exec_always --no-startup-id ~/.config/polybar/launch.sh &
+
 # Start i3bar to display a workspace bar (plus the system information i3status if available)
-bar {
-	i3bar_command i3bar
-	status_command i3status
-	position bottom
+#bar {
+#	i3bar_command i3bar
+#	status_command i3status
+#	position bottom
 
 ## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
 #	tray_output primary
 #	tray_output eDP1
 
-	bindsym button4 nop
-	bindsym button5 nop
-    	font xft:URWGothic-Book 11
-	strip_workspace_numbers yes
+#	bindsym button4 nop
+#	bindsym button5 nop
+#    	font xft:URWGothic-Book 11
+#	strip_workspace_numbers yes
 
-    colors {
-        background $term_background
-        statusline $term_color10
-        separator  $term_color_10
+#    colors {
+#        background $term_background
+#        statusline $term_color10
+#        separator  $term_color_10
 
 #                          border           backgr.             text
-        focused_workspace  $term_color5     $term_color5        $term_color15
-        active_workspace   $term_color5     $term_color5        $term_color15
-        inactive_workspace $term_color5     $term_background    $term_color15
-        binding_mode       $term_color5     $term_color6        $term_color5
-        urgent_workspace   $term_color5     $term_color15       $term_color5
-    }
-}
+#        focused_workspace  $term_color5     $term_color5        $term_color15
+#        active_workspace   $term_color5     $term_color5        $term_color15
+#        inactive_workspace $term_color5     $term_background    $term_color15
+#        binding_mode       $term_color5     $term_color6        $term_color5
+#        urgent_workspace   $term_color5     $term_color15       $term_color5
+#    }
+#}
 
 # hide/unhide i3status bar
 bindsym $mod+m bar mode toggle
