@@ -68,7 +68,8 @@ alias pip='sudo pip'
 alias sn='sncli'
 alias td='calcurse'
 
-alias ls='ls -lah --color=auto'
+#alias ls='ls-icons -lah --color=auto'
+alias ls='lsd -lah'
 alias grep='grep --color=auto'
 
 alias dotfiles='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'

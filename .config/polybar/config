@@ -3,7 +3,7 @@ background = ${xrdb:color0:#222}
 background-alt = #444
 ;foreground = ${xrdb:color7:#222}
 foreground = #dfdfdf
-foreground-alt = #555
+foreground-alt = #ccffff
 primary = #ccffff
 secondary = #0066ff
 alert = #0066ff
@@ -42,11 +42,12 @@ bottom = false
 ;-------;
 ; FONTS ;
 ;-------;
-#cc000000
-font-0 = scientifica:style=Regular:size=10:antialias=true;3"
-font-1 = "Font Awesome 5 Free:style=Solid:pixelsize=8;3"
-font-2 = "Font Awesome 5 Free:style=Regular:pixelsize=8;3"
-font-3 = "Font Awesome 5 Brands:pixelsize=8;3"
+
+font-0 = "URWGothic-Book:size=11"
+font-1 = "Font Awesome 5 Free:style=Solid:pixelsize=11"
+font-2 = "Font Awesome 5 Free:style=Regular:pixelsize=11"
+font-3 = "Font Awesome 5 Brands:pixelsize=11"
+font-4 = "DejaVu Sans Mono:size=11"
 
 ;--------;
 ; COLORS ;
@@ -55,7 +56,7 @@ font-3 = "Font Awesome 5 Brands:pixelsize=8;3"
 background = #cc000000
 background-alt = #555
 foreground = #dfdfdf
-foreground-alt = #555
+foreground-alt = #ccffff
 primary = #0066FF
 secondary = #e60053
 alert = #B2535B
@@ -106,6 +107,9 @@ line-color = #f00
 border-size = 4
 border-color = #00000000
 
+tray-position = right
+tray-padding = 2 
+
 ;------------;
 ; DIMENSIONS ;
 ;------------;
@@ -130,11 +134,11 @@ bottom = true
 ; FONTS ;
 ;-------;
 
-font-0 = scientifica:style=Regular:size=10:antialias=true;3
-font-1 = "Font Awesome 5 Free:style=Solid:pixelsize=11;3"
-font-2 = "Font Awesome 5 Free:style=Regular:pixelsize=11;3"
-font-3 = "Font Awesome 5 Brands:pixelsize=11;3"
-font-4 = "Scientifica:size=10;3"
+font-0 = "URWGothic-Book:size=11"
+font-1 = "Font Awesome 5 Free:style=Solid:pixelsize=11"
+font-2 = "Font Awesome 5 Free:style=Regular:pixelsize=11"
+font-3 = "Font Awesome 5 Brands:pixelsize=11"
+font-4 = "DejaVu Sans Mono:size=11"
 
 ;--------;
 ; COLORS ;
@@ -143,7 +147,7 @@ font-4 = "Scientifica:size=10;3"
 background = #cc000000
 background-alt = #555
 foreground = #dfdfdf
-foreground-alt = #555
+foreground-alt = #ccffff
 primary = #E1D4AE
 secondary = #e60053
 alert = #B2535B
@@ -317,7 +321,7 @@ label-foreground = ${colors.primary}
 
 [module/wlan]
 type = internal/network
-interface = wlp1s0
+interface = wlp3s0
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
@@ -379,7 +383,7 @@ format-volume-foreground = ${colors.primary}
 label-volume = %percentage%%
 label-volume-foreground = ${colors.primary}
 
-label-muted =   mudo
+label-muted =   mute
 label-muted-foreground = ${colors.secondary}
 
 bar-volume-width = 10
@@ -397,7 +401,7 @@ bar-volume-fill = ─
 bar-volume-fill-font = 4
 bar-volume-empty = ─
 bar-volume-empty-font = 4
-bar-volume-empty-foreground = ${colors.foreground-alt}
+Vbar-volume-empty-foreground = ${colors.foreground-alt}
 
 [module/alsa]
 type = internal/alsa
@@ -429,9 +433,10 @@ bar-volume-empty-foreground = ${colors.foreground-alt}
 
 [module/battery]
 type = internal/battery
-battery = BAT1
+battery = BAT0
 adapter = ADP1
 full-at = 98
+time-format = %H:%M
 
 format-charging = <animation-charging> <label-charging>
 format-charging-underline = 
@@ -444,10 +449,15 @@ format-full-prefix-foreground = ${colors.primary}
 format-full-underline = ${self.format-charging-underline}
 format-full-foreground = ${colors.primary}
 
+label-charging =  %percentage%%
+label-charging-foreground = ${colors.foreground-alt}
+label-discharging =  %percentage%% - %time%
+label-discharging-foreground = ${colors.foreground-alt}
+
 ramp-capacity-0 = 
 ramp-capacity-1 = 
 ramp-capacity-2 = 
-ramp-capacity-foreground = ${colors.foreground-alt}
+ramp-capacity-foreground = ${colors.secondary}
 
 animation-charging-0 = 
 animation-charging-1 = 
