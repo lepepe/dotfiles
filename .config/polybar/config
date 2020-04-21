@@ -53,7 +53,7 @@ font-4 = "DejaVu Sans Mono:size=11"
 ; COLORS ;
 ;--------;
 
-background = #cc000000
+background = #80000000
 background-alt = #555
 foreground = #dfdfdf
 foreground-alt = #ccffff
@@ -75,7 +75,7 @@ module-margin-right = 2
 
 modules-left = powermenu pulseaudio backlight-acpi
 modules-center = xwindow
-modules-right = wlan battery date
+modules-right = vpn-openvpn wlan battery weather date
 
 tray-position = hidden
 tray-padding =2 
@@ -144,7 +144,7 @@ font-4 = "DejaVu Sans Mono:size=11"
 ; COLORS ;
 ;--------;
 
-background = #cc000000
+background = #80000000
 background-alt = #555
 foreground = #dfdfdf
 foreground-alt = #ccffff
@@ -166,7 +166,7 @@ module-margin-right = 2
 
 modules-left = i3
 modules-center = spotify
-modules-right = filesystem memory cpu temperature
+modules-right = filesystem memory cpu temperature updates
 
 ;---------;
 ; MODULES ;
@@ -179,6 +179,33 @@ format-prefix = "  "
 format = <label>
 exec = python $HOME/.config/polybar/spotify.py
 format-underline = 
+format-foreground = ${colors.primary}
+
+[module/system-bluetooth]
+type = custom/script
+exec = bash ~/polybar-scripts/system-bluetooth-bluetoothctl.sh
+tail = true
+click-left = ~/polybar-scripts/system-bluetooth-bluetoothctl.sh --toggle &
+
+[module/updates]
+type = custom/script
+format-prefix = "  "
+exec = bash ~/polybar-scripts/updates-arch-combined.sh
+interval = 600
+format-foreground = ${colors.primary}
+
+[module/vpn-openvpn]
+type = custom/script
+format-prefix = "  "
+exec = bash ~/polybar-scripts/vpn-openvpn-isrunning.sh
+interval = 5
+format-foreground = ${colors.primary}
+
+[module/weather]
+type = custom/script
+exec = bash ~/polybar-scripts/openweathermap-fullfeatured.sh
+interval = 600
+label-font = 3
 format-foreground = ${colors.primary}
 
 [module/xwindow]
@@ -444,12 +471,12 @@ format-charging-underline =
 format-discharging = <animation-discharging> <label-discharging>
 format-discharging-underline = ${self.format-charging-underline}
 
-format-full-prefix = "  "
+format-full-prefix = "  "
 format-full-prefix-foreground = ${colors.primary}
 format-full-underline = ${self.format-charging-underline}
 format-full-foreground = ${colors.primary}
 
-label-charging =  %percentage%%
+label-charging =  %percentage%% 
 label-charging-foreground = ${colors.foreground-alt}
 label-discharging =  %percentage%% - %time%
 label-discharging-foreground = ${colors.foreground-alt}
@@ -474,7 +501,7 @@ animation-discharging-framerate = 750
 [module/temperature]
 type = internal/temperature
 thermal-zone = 0
-warn-temperature = 60
+warn-temperature = 80
 
 format = <ramp> <label>
 format-foreground = ${colors.primary}
@@ -531,3 +558,4 @@ margin-top = 5
 margin-bottom = 5
 
 ; vim:ft=dosini
+
