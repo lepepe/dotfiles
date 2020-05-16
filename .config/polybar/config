@@ -53,7 +53,7 @@ font-4 = "DejaVu Sans Mono:size=11"
 ; COLORS ;
 ;--------;
 
-background = #80000000
+background = #00000000
 background-alt = #555
 foreground = #dfdfdf
 foreground-alt = #ccffff
@@ -144,7 +144,7 @@ font-4 = "DejaVu Sans Mono:size=11"
 ; COLORS ;
 ;--------;
 
-background = #80000000
+background = #00000000
 background-alt = #555
 foreground = #dfdfdf
 foreground-alt = #ccffff

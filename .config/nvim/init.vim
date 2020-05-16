@@ -43,7 +43,13 @@ Plug 'Yggdroot/indentLine'
 Plug 'avelino/vim-bootstrap-updater'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-rhubarb' " required by fugitive to :Gbrowse
-Plug 'skammer/vim-css-color'
+"Plug 'skammer/vim-css-color'
+
+Plug 'PotatoesMaster/i3-vim-syntax'                " i3 config highlighting
+Plug 'kovetskiy/sxhkd-vim'                         " sxhkd highlighting
+Plug 'vim-python/python-syntax'                    " Python highlighting
+Plug 'ap/vim-css-color'                            " Color previews for CSS
+Plug 'chrisbra/colorizer'
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
