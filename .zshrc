@@ -67,6 +67,8 @@ alias pman='sudo pacman'
 alias pip='sudo pip'
 alias sn='sncli'
 alias td='calcurse'
+alias sptd='systemctl --user enable spotifyd.service'
+alias sshrm='/home/lepepe/.local/bin/scripts/sshfs-remote-mount.sh'
 
 #alias ls='ls-icons -lah --color=auto'
 alias ls='lsd -lah'
