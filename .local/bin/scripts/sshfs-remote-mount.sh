@@ -46,6 +46,7 @@ do
             ;;
         "Local Servers")
             echo "You have selected: $opt"
+            nmap -sn 172.16.1.0/24 10.255.4.0/24 | awk '/is up/ {print up}; {gsub (/\(|\)/,""); up = $NF}'
 
             # Enter necesary info
             echo
