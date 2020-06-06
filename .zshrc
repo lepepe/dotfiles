@@ -68,7 +68,11 @@ alias pip='sudo pip'
 alias sn='sncli'
 alias td='calcurse'
 alias sptd='systemctl --user enable spotifyd.service'
-alias sshrm='/home/lepepe/.local/bin/scripts/sshfs-remote-mount.sh'
+# Custom sripts
+alias sshrm='~/.local/bin/scripts/sshfs-remote-mount.sh'
+alias dossh='~/.local/bin/scripts/dossh.sh'
+alias lssh='~/.local/bin/scripts/lssh.sh'
+alias mssql='~/.local/bin/scripts/mssql.sh'
 
 #alias ls='ls-icons -lah --color=auto'
 alias ls='lsd -lah'
@@ -113,3 +117,6 @@ SPACESHIP_JOBS_SHOW=false
 # Spaceship Prompt
 autoload -U promptinit; promptinit
 prompt spaceship
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
