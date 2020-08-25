@@ -1,12 +1,11 @@
 [colors]
 background = ${xrdb:color0:#222}
 background-alt = #444
-;foreground = ${xrdb:color7:#222}
-foreground = #dfdfdf
-foreground-alt = #ccffff
-primary = #ccffff
-secondary = #0066ff
-alert = #0066ff
+foreground = ${xrdb:color7:#222}
+foreground-alt = ${xrdb:color7:#222}
+primary = ${xrdb:color1:#222}
+secondary = ${xrdb:color2:#222}
+alert = ${xrdb:color3:#222}
 
 ;------------;
 ; TOPBAR    ;
@@ -53,13 +52,14 @@ font-4 = "DejaVu Sans Mono:size=11"
 ; COLORS ;
 ;--------;
 
+#background = ${xrdb:color0:#222}
 background = #00000000
-background-alt = #555
-foreground = #dfdfdf
-foreground-alt = #ccffff
-primary = #0066FF
-secondary = #e60053
-alert = #B2535B
+background-alt = #444
+foreground = ${xrdb:color7:#222}
+foreground-alt = ${xrdb:color7:#222}
+primary = ${xrdb:color1:#222}
+secondary = ${xrdb:color2:#222}
+alert = ${xrdb:color3:#222}
 
 ;---------------;
 ; MISCELLANEOUS ;
@@ -144,13 +144,14 @@ font-4 = "DejaVu Sans Mono:size=11"
 ; COLORS ;
 ;--------;
 
+#background = ${xrdb:color0:#222}
 background = #00000000
-background-alt = #555
-foreground = #dfdfdf
-foreground-alt = #ccffff
-primary = #E1D4AE
-secondary = #e60053
-alert = #B2535B
+foreground = ${xrdb:color7:#222}
+foreground-alt = ${xrdb:color7:#222}
+primary = ${xrdb:color1:#222}
+secondary = ${xrdb:color2:#222}
+alert = ${xrdb:color3:#222}
+
 
 ;---------------;
 ; MISCELLANEOUS ;
