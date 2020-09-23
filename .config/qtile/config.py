@@ -9,9 +9,9 @@ from libqtile import layout, bar, widget, hook
 from typing import List  # noqa: F401
 import json
 
-mod = "mod1"                                     # Sets mod key to SUPER/WINDOWS
-myTerm = "alacritty"                             # My terminal of choice
-myConfig = "/home/lepepe/.config/qtile/config.py"    # The Qtile config file location
+mod = "mod1" # Set mod key
+myTerm = "alacritty" # My terminal of choice
+myConfig = "/home/lepepe/.config/qtile/config.py" # The Qtile config file location
 
 # pull pywal colors from cached template
 pykolors = os.path.expanduser('~/.cache/wal/colors.json')
@@ -132,53 +132,16 @@ keys = [
              lazy.layout.toggle_split(),
              desc='Toggle between split and unsplit sides of stack'
              ),
-         ### Dmenu scripts launched with ALT + CTRL + KEY
-         Key(["mod1", "control"], "e",
-             lazy.spawn("./.dmenu/dmenu-edit-configs.sh"),
-             desc='Dmenu script for editing config files'
-             ),
-         Key(["mod1", "control"], "m",
-             lazy.spawn("./.dmenu/dmenu-sysmon.sh"),
-             desc='Dmenu system monitor script'
-             ),
-         Key(["mod1", "control"], "p",
-             lazy.spawn("passmenu"),
-             desc='Passmenu'
-             ),
-         Key(["mod1", "control"], "r",
-             lazy.spawn("./.dmenu/dmenu-reddio.sh"),
-             desc='Dmenu reddio script'
-             ),
-         Key(["mod1", "control"], "s",
-             lazy.spawn("./.dmenu/dmenu-surfraw.sh"),
-             desc='Dmenu surfraw script'
-             ),
-         Key(["mod1", "control"], "t",
-             lazy.spawn("./.dmenu/dmenu-trading.sh"),
-             desc='Dmenu trading programs script'
-             ),
-         Key(["mod1", "control"], "i",
-             lazy.spawn("./.dmenu/dmenu-scrot.sh"),
-             desc='Dmenu scrot script'
-             ),
          ### My applications launched with SUPER + ALT + KEY
-         Key([mod, "mod1"], "b",
-             lazy.spawn("tabbed -r 2 surf -pe x '.surf/html/homepage.html'"),
-             desc='lynx browser'
-             ),
-         Key([mod, "mod1"], "l",
-             lazy.spawn(myTerm+" -e lynx gopher://distro.tube"),
-             desc='lynx browser'
-             ),
          Key([mod, "mod1"], "n",
              lazy.spawn(myTerm+" -e newsboat"),
              desc='newsboat'
              ),
-         Key([mod, "mod1"], "r",
+         Key([mod], "r",
              lazy.spawn(myTerm+" -e rtv"),
              desc='reddit terminal viewer'
              ),
-         Key([mod, "mod1"], "e",
+         Key([mod], "e",
              lazy.spawn(myTerm+" -e neomutt"),
              desc='neomutt'
              ),
@@ -186,27 +149,11 @@ keys = [
              lazy.spawn(myTerm+" -e sh ./scripts/toot.sh"),
              desc='toot mastodon cli'
              ),
-         Key([mod, "mod1"], "t",
-             lazy.spawn(myTerm+" -e sh ./scripts/tig-script.sh"),
-             desc='tig'
-             ),
-         Key([mod, "mod1"], "f",
-             lazy.spawn(myTerm+" -e sh ./.config/vifm/scripts/vifmrun"),
+         Key([mod], "f",
+             lazy.spawn(myTerm+" -e ranger"),
              desc='vifm'
              ),
-         Key([mod, "mod1"], "j",
-             lazy.spawn(myTerm+" -e joplin"),
-             desc='joplin'
-             ),
-         Key([mod, "mod1"], "c",
-             lazy.spawn(myTerm+" -e cmus"),
-             desc='cmus'
-             ),
-         Key([mod, "mod1"], "i",
-             lazy.spawn(myTerm+" -e irssi"),
-             desc='irssi'
-             ),
-         Key([mod, "mod1"], "y",
+         Key([mod], "y",
              lazy.spawn(myTerm+" -e youtube-viewer"),
              desc='youtube-viewer'
              ),
@@ -216,12 +163,14 @@ keys = [
              ),
 ]
 
-group_names = [("", {'layout': 'monadtall'}),
-               ("", {'layout': 'monadtall'}),
-               ("", {'layout': 'floating'}),
-               ("", {'layout': 'monadtall'}),
-               ("", {'layout': 'monadtall'}),
-               ("", {'layout': 'floating'})]
+group_names = [
+    ("", {'layout': 'monadtall'}),
+    ("", {'layout': 'monadtall'}),
+    ("", {'layout': 'floating'}),
+    ("", {'layout': 'monadtall'}),
+    ("", {'layout': 'monadtall'}),
+    ("", {'layout': 'floating'})
+]
 
 groups = [Group(name, **kwargs) for name, kwargs in group_names]
 
@@ -229,11 +178,12 @@ for i, (name, kwargs) in enumerate(group_names, 1):
     keys.append(Key([mod], str(i), lazy.group[name].toscreen()))        # Switch to another group
     keys.append(Key([mod, "shift"], str(i), lazy.window.togroup(name))) # Send current window to another group
 
-layout_theme = {"border_width": 3,
-                "margin": 6,
-                "border_focus": kolor02,
-                "border_normal": kolor00
-                }
+layout_theme = {
+    "border_width": 3,
+    "margin": 6,
+    "border_focus": kolor01,
+    "border_normal": kolor00
+}
 
 layouts = [
     #layout.MonadWide(**layout_theme),
@@ -254,14 +204,14 @@ layouts = [
          sections = ["FIRST", "SECOND"],
          section_fontsize = 11,
          bg_color = kolorbg,
-         active_bg = kolor02,
-         active_fg = kolor01,
+         active_bg = kolor04,
+         active_fg = kolor12,
          inactive_bg = kolor03,
-         inactive_fg = "a0a0a0",
+         inactive_fg = kolorfg,
          padding_y = 5,
          section_top = 10,
          panel_width = 230
-         ),
+    ),
     layout.Floating(**layout_theme)
 ]
 
@@ -272,7 +222,7 @@ widget_defaults = dict(
     font="Ubuntu Mono",
     fontsize = 12,
     padding = 2,
-    background=kolor02
+    background=kolor13
 )
 extension_defaults = widget_defaults.copy()
 
@@ -285,28 +235,30 @@ def init_widgets_list():
                        background = kolorbg
                        ),
               widget.Image(
-                       filename = "~/.config/qtile/icons/python.png",
-                       mouse_callbacks = {'Button1': lambda qtile: qtile.cmd_spawn('dmenu_run')}
+                       filename = "~/.config/qtile/icons/arch-logo.png",
+                       background = kolorbg,
+                       margin_x = 5,
+                       mouse_callbacks = {'Button1': lambda qtile: qtile.cmd_spawn('rofi -show run'),}
                        ),
               widget.GroupBox(
                        font = "Ubuntu Bold",
-                       fontsize = 20,
+                       fontsize = 24,
                        margin_y = 3,
                        margin_x = 0,
                        padding_y = 5,
                        padding_x = 3,
                        borderwidth = 3,
                        active = kolor02,
-                       inactive = kolor02,
+                       inactive = kolor01,
                        rounded = False,
-                       highlight_color = kolor01,
+                       highlight_color = kolorbg,
                        highlight_method = "line",
-                       this_current_screen_border = kolor03,
-                       this_screen_border = kolor04,
+                       this_current_screen_border = kolor02,
+                       this_screen_border = kolor01,
                        other_current_screen_border = kolor00,
                        other_screen_border = kolor00,
-                       foreground = kolor02,
-                       background = kolor00
+                       foreground = kolorfg,
+                       background = kolorbg
                        ),
               widget.Prompt(
                        prompt = prompt,
@@ -317,15 +269,22 @@ def init_widgets_list():
                        ),
               widget.Sep(
                        linewidth = 0,
-                       padding = 40,
-                       foreground = kolor02,
-                       background = kolor00
+                       padding = 20,
+                       foreground = kolorfg,
+                       background = kolorbg
                        ),
               widget.WindowName(
-                       foreground = kolor06,
-                       background = kolor00,
+                       foreground = kolor02,
+                       background = kolorbg,
                        padding = 0
                        ),
+              widget.StockTicker(
+                      foreground = kolorfg,
+                      background = kolorbg,
+                      padding = 5,
+                      apikey="WOQDGOAXJ2URB0OZ",
+                      symbol="AAPL"
+                      ),
               widget.TextBox(
                        text = " ₿",
                        padding = 0,
@@ -359,13 +318,14 @@ def init_widgets_list():
                        fontsize = 14
                        ),
               widget.CheckUpdates(
-                       update_interval = 1800,
-                       distro = 'Arch',
-                       display_format = '{updates}',
-                       mouse_callbacks = {'Button1': lambda qtile: qtile.cmd_spawn(myTerm + ' -e sudo pacman -Syu')},
-                       foreground = kolorfg,
-                       background = kolorbg
-                       ),
+			distro = "Arch_checkupdates",
+			display_format = "{updates}",
+			update_interval = 900,
+                        foreground = kolorfg,
+                        background = kolorbg,
+			colour_have_updates = kolor02,
+			colour_no_updates = kolorfg
+                        ),
               widget.TextBox(
                        text = "Updates",
                        padding = 5,
@@ -387,32 +347,20 @@ def init_widgets_list():
                        padding = 5
                        ),
               widget.TextBox(
-                       text = " ",
-                       foreground = kolorfg,
-                       background = kolorbg,
-                       padding = 0,
-                       fontsize = 17
-                       ),
-              widget.Net(
-                       interface = "enp6s0",
-                       format = '{down} ↓↑ {up}',
-                       foreground = kolorfg,
-                       background = kolorbg,
-                       padding = 5
-                       ),
-              widget.TextBox(
                        text = " ",
                        foreground = kolorfg,
                        background = kolorbg,
+                       mouse_callbacks = {'Button1': lambda qtile: qtile.cmd_spawn(myTerm + ' -e sudo wifi-menu')},
                        padding = 0,
                        fontsize = 17
                        ),
-              widget.Net(
-                       interface = "wlp5s0",
-                       format = '{down} ↓↑ {up}',
+              widget.Wlan(
+                       interface = "wlp3s0",
+                       format = '{essid} {quality}/70',
                        foreground = kolorfg,
                        background = kolorbg,
-                       padding = 5
+                       padding = 5,
+                       mouse_callbacks = {'Button1': lambda qtile: qtile.cmd_spawn(myTerm + ' -e sudo wifi-menu')}
                        ),
               widget.TextBox(
                       text = " Vol:",
@@ -425,6 +373,15 @@ def init_widgets_list():
                        background = kolorbg,
                        padding = 5
                        ),
+              widget.Battery(
+                       foreground = kolorfg,
+                       background = kolorbg,
+                       format = '{char} {percent:2.0%} {hour:d}:{min:02d}',
+                       update_interval = 5,
+                       full_char = "  ",
+                       discharge_char = "  ",
+                       charge_char = "  "
+                      ),
               widget.CurrentLayoutIcon(
                        custom_icon_paths = [os.path.expanduser("~/.config/qtile/icons")],
                        foreground = kolorfg,
@@ -464,7 +421,7 @@ def init_widgets_screen2():
     return widgets_screen2                       # Monitor 2 will display all widgets in widgets_list
 
 def init_screens():
-    return [Screen(top=bar.Bar(widgets=init_widgets_screen1(), opacity=1.0, size=20)),
+    return [Screen(top=bar.Bar(widgets=init_widgets_screen1(), opacity=0.9, size=20)),
             Screen(top=bar.Bar(widgets=init_widgets_screen2(), opacity=1.0, size=20)),
             Screen(top=bar.Bar(widgets=init_widgets_screen1(), opacity=1.0, size=20))]
 
@@ -498,12 +455,14 @@ floating_layout = layout.Floating(float_rules=[
     {'wmclass': 'notification'},
     {'wmclass': 'splash'},
     {'wmclass': 'toolbar'},
-    {'wmclass': 'confirmreset'},  # gitk
-    {'wmclass': 'makebranch'},  # gitk
-    {'wmclass': 'maketag'},  # gitk
-    {'wname': 'branchdialog'},  # gitk
-    {'wname': 'pinentry'},  # GPG key password entry
-    {'wmclass': 'ssh-askpass'},  # ssh-askpass
+    {'wmclass': 'confirmreset'},
+    {'wmclass': 'makebranch'},
+    {'wmclass': 'maketag'},
+    {'wname': 'branchdialog'},
+    {'wname': 'pinentry'},
+    {'wmclass': 'ssh-askpass'},
+    {'wmclass': 'pavucontrol'},
+    {'wmclass': 'slack'},
 ])
 auto_fullscreen = True
 focus_on_window_activation = "smart"

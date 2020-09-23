@@ -8,5 +8,6 @@ while grep -x polybar >/dev/null; do sleep 1; done
 
 # Launch the example bar
 #polybar example
-polybar PolybarTop -r &
-polybar PolybarBot -r
+#polybar PolybarTop -r &
+#polybar PolybarBot -r
+polybar bar -r
