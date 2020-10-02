@@ -1,0 +1,50 @@
+set from = "jose.perez@vertilux.com"
+set realname = "Jose Perez"
+
+# Imap settings
+set imap_user = "jose.perez@vertilux.com"
+set imap_pass = $GPASSWD
+
+# Smtp settings
+set smtp_url = "smtps://jose.perez@vertilux.com@smtp.gmail.com"
+set smtp_pass = $GPASSWD
+
+# Remote gmail folders
+set folder = "imaps://imap.gmail.com/"
+set spoolfile = +INBOX
+set postponed = "+[Gmail]/Drafts"
+set record = "+[Gmail]/Sent Mail"
+set trash = "+[Gmail]/Trash"
+
+mailboxes =INBOX =[Gmail]/Sent\ Mail =[Gmail]/Drafts =[Gmail]/Spam =[Gmail]/Trash
+
+# Mail Editor
+set editor=nvim
+
+# Display Sidebar
+set sidebar_width=30
+set sidebar_visible=yes
+
+# If hcache is a folder, Mutt will create sub cache folders for each account which may speeds things up even more
+set header_cache = ~/.cache/mutt
+
+# Store messages locally to speed things up, like searching message bodies.
+set message_cachedir = ~/.cache/mutt
+
+set sort = threads
+
+# Vim like binds
+bind attach,index,pager \CD next-page
+bind attach,index,pager \CU previous-page
+bind pager g top
+bind pager G bottom
+bind attach,index g first-entry
+bind attach,index G last-entry
+
+# Sidebar navigation
+bind index,pager \CP sidebar-prev                 # Ctrl-n Next Folder
+bind index,pager \CN sidebar-next                 # Ctrl-p Previous Folder
+bind index,pager \CI sidebar-open                 # Ctrl-i Open Folder
+bind index,pager \CB sidebar-toggle-visible       # Ctrl-b Toggle Sidebar
+
+source /home/lepepe/.mutt/dracula.muttrc
