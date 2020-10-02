@@ -1,4 +1,4 @@
 #! /bin/bash 
 picom &
 nitrogen --restore &
-nm-applet &
+#nm-applet &
