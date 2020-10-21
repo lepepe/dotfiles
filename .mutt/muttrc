@@ -47,4 +47,7 @@ bind index,pager \CN sidebar-next                 # Ctrl-p Previous Folder
 bind index,pager \CI sidebar-open                 # Ctrl-i Open Folder
 bind index,pager \CB sidebar-toggle-visible       # Ctrl-b Toggle Sidebar
 
+# Reply to all bind
+bind index,pager \Cr group-reply                  # Ctrl-r Reply to all
+
 source /home/lepepe/.mutt/dracula.muttrc

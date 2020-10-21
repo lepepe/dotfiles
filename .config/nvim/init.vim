@@ -1,22 +1,23 @@
 " Specify a directory for plugins
 call plug#begin('~/.config/nvim/plugged')
 
+"Plug 'tsony-tsonev/nerdtree-git-plugin'
+"Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+"Plug 'valloric/youcompleteme'
+"Plug 'airblade/vim-gitgutter'
+"
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'scrooloose/nerdtree'
-"Plug 'tsony-tsonev/nerdtree-git-plugin'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ryanoasis/vim-devicons'
-Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
 Plug 'ctrlpvim/ctrlp.vim' " fuzzy find files
 Plug 'scrooloose/nerdcommenter'
-"Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'vim-scripts/AutoComplPop'
-"Plug 'valloric/youcompleteme'
 
 Plug 'christoomey/vim-tmux-navigator'
-
-Plug 'morhetz/gruvbox'
+Plug 'dracula/dracula-theme'
 
 Plug 'HerringtonDarkholme/yats.vim' " TS Syntax
 
@@ -61,8 +62,8 @@ vmap ++ <plug>NERDCommenterToggle
 nmap ++ <plug>NERDCommenterToggle
 
 " open NERDTree automatically
-"autocmd StdinReadPre * let s:std_in=1
-"autocmd VimEnter * NERDTree
+" autocmd StdinReadPre * let s:std_in=1
+" autocmd VimEnter * NERDTree
 
 let g:NERDTreeGitStatusWithFlags = 1
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1

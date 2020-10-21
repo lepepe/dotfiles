@@ -37,7 +37,8 @@ color7 = ${xrdb:color7}
 enable-ipc=true
 height = 30
 width = 100%
-bottom = true
+top = true
+tray-position = right
 
 background = ${colors.background}
 foreground = ${colors.foreground}
