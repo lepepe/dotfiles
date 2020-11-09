@@ -1,11 +1,6 @@
 " Specify a directory for plugins
 call plug#begin('~/.config/nvim/plugged')
 
-"Plug 'tsony-tsonev/nerdtree-git-plugin'
-"Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
-"Plug 'valloric/youcompleteme'
-"Plug 'airblade/vim-gitgutter'
-"
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -15,11 +10,10 @@ Plug 'tpope/vim-fugitive'
 Plug 'ctrlpvim/ctrlp.vim' " fuzzy find files
 Plug 'scrooloose/nerdcommenter'
 Plug 'vim-scripts/AutoComplPop'
-
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'dracula/dracula-theme'
-
+Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'HerringtonDarkholme/yats.vim' " TS Syntax
+Plug 'lilydjwg/colorizer'
+Plug 'mbbill/undotree'
 
 " c
 Plug 'vim-scripts/c.vim', {'for': ['c', 'cpp']}
@@ -34,9 +28,6 @@ Plug 'mattn/emmet-vim'
 let g:cssColorVimDoNotMessMyUpdatetime = 1
 " javascript
 Plug 'jelera/vim-javascript-syntax'
-" perl
-Plug 'vim-perl/vim-perl'
-Plug 'c9s/perlomni.vim'
 " php
 Plug 'arnaud-lb/vim-php-namespace'
 " python
@@ -50,8 +41,6 @@ Plug 'thoughtbot/vim-rspec'
 Plug 'ecomba/vim-ruby-refactoring'
 " R
 Plug 'jalvesaq/Nvim-R'
-
-Plug 'lilydjwg/colorizer'
 
 " Initialize plugin system
 call plug#end()
@@ -105,10 +94,10 @@ set smarttab
 set cindent
 set tabstop=2
 set shiftwidth=2
-" always uses spaces instead of tab characters
 set expandtab
+set colorcolumn=120
 
-"colorscheme gruvbox
+colorscheme dracula
 set background=dark
 
 " sync open file with NERDTree
@@ -129,6 +118,11 @@ endfunction
 " Highlight currently open buffer in NERDTree
 autocmd BufEnter * call SyncTree()
 
+let mapleader = " "
+let g:netrw_browse_split = 2
+let g:netrw_banner = 0
+let g:netrw_winsize = 25
+
 " coc config
 let g:coc_global_extensions = [
   \ 'coc-snippets',
@@ -140,7 +134,7 @@ let g:coc_global_extensions = [
   \ ]
 " from readme
 " if hidden is not set, TextEdit might fail.
-set hidden " Some servers have issues with backup files, see #649 set nobackup set nowritebackup " Better display for messages set cmdheight=2 " You will have bad experience for diagnostic messages when it's default 4000.
+set hidden " Some servers have issues with backup files
 set updatetime=300
 
 "" Tabs
@@ -267,3 +261,9 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR> 
+
+nnoremap <leader>h :wincmd h<CR>
+nnoremap <leader>j :wincmd j<CR>
+nnoremap <leader>k :wincmd k<CR>
+nnoremap <leader>l :wincmd l<CR>
+nnoremap <leader>u :UndotreeShow<CR>
