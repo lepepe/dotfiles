@@ -42,8 +42,8 @@ bind attach,index g first-entry
 bind attach,index G last-entry
 
 # Sidebar navigation
-bind index,pager \CP sidebar-prev                 # Ctrl-n Next Folder
-bind index,pager \CN sidebar-next                 # Ctrl-p Previous Folder
+bind index,pager \CP sidebar-prev                 # Ctrl-p Previous Folder
+bind index,pager \CN sidebar-next                 # Ctrl-p Nest Folder
 bind index,pager \CI sidebar-open                 # Ctrl-i Open Folder
 bind index,pager \CB sidebar-toggle-visible       # Ctrl-b Toggle Sidebar
 
