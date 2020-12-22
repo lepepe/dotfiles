@@ -1,4 +1,4 @@
-==========================================================
+;==========================================================
 ;
 ;
 ;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
@@ -69,14 +69,14 @@ override-redirect = false
 ; | '_ ` _ \ / _ \ / _` | | | | |/ _ \/ __|
 ; | | | | | | (_) | (_| | |_| | |  __/\__ \
 ; |_| |_| |_|\___/ \__,_|\__,_|_|\___||___/
-                                         
+
 [module/launcher]
 type=custom/text
 content = 
 content-font=5
 content-foreground=${colors.color4}
 content-padding=2
-click-left=bash /home/lepepe/.config/polybar/launcher.sh
+click-left=bash /home/lepepe/.config/polybar/launcher.sh                                         
 
 [module/xwindow]
 type = internal/xwindow

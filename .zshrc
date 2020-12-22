@@ -1,7 +1,6 @@
 # Path to your oh-my-zsh installation.
 ZSH=/usr/share/oh-my-zsh/
 
-export DEFAULT_USER="fernando"
 export TERM="xterm-256color"
 export ZSH=/usr/share/oh-my-zsh
 
@@ -85,13 +84,13 @@ source $ZSH/oh-my-zsh.sh
 # Import colorscheme from 'wal' asynchronously
 # &   # Run the process in the background.
 # ( ) # Hide shell job control messages.
-(cat ~/.cache/wal/sequences &)
+#(cat ~/.cache/wal/sequences &)
 
 # Alternative (blocks terminal for 0-3ms)
-cat ~/.cache/wal/sequences
+#cat ~/.cache/wal/sequences
 
 # To add support for TTYs this line can be optionally added.
-source ~/.cache/wal/colors-tty.sh
+#source ~/.cache/wal/colors-tty.sh
 
 # Ruby ENV
 export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
@@ -121,7 +120,7 @@ alias lssh='~/.local/bin/scripts/lssh.sh'
 alias mssql='~/.local/bin/scripts/mssql.sh'
 
 #alias ls='ls-icons -lah --color=auto'
-alias ls='ls -lah'
+alias ls='exa -lah'
 alias grep='grep --color=auto'
 
 alias dotfiles='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
@@ -131,3 +130,4 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 source /usr/share/zsh/plugins/zsh-you-should-use/you-should-use.plugin.zsh 2>/dev/null
 
 neofetch
+eval "$(starship init zsh)"
