@@ -161,7 +161,7 @@ config.set('content.javascript.enabled', True, 'qute://*/*')
 #   - true
 #   - false
 #   - ask
-config.set('content.media_capture', True, 'https://meet.vertilux.com')
+# config.set('content.media_capture', True, 'https://meet.vertilux.com')
 
 # Allow websites to register protocol handlers via
 # `navigator.registerProtocolHandler`.

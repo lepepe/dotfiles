@@ -4,10 +4,30 @@
 ;; sync' after modifying this file!
 
 
+(add-to-list 'load-path "/usr/local/share/emacs/site-lisp/mu4e")
+;;(require 'smtpmail)
+
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets.
 (setq user-full-name "Jose Perez"
-      user-mail-address "lepepe@hey.com")
+      user-mail-address "jose.perez@vertilux.com"
+
+      mu4e-get-mail-command "mbsync -c ~/.config/mu4e/mbsyncrc -a"
+      mu4e-update-interval 180
+      mu4e-headers-auto-update t
+      mu4e-main-buffer-hide-personal-addresses t
+      message-send-mail-function 'smtpmail-send-it
+      starttls-use-gnutls t
+      smtpmail-starttls-credentials '(("smtp.gmail.com" 587 nil nil))
+      mu4e-sent-folder "/vertilux/sent"
+      mu4e-drafts-folder "/vertilux/draft"
+      mu4e-trash-folder "/vertilux/trash"
+      mu4e-maildir-shortcuts
+      '(("/vertilux/Inbox"    . ?i)
+        ("/vertilux/sent"     . ?s)
+        ("/vertilux/draft"    . ?d)
+        ("/vertilux/trash"    . ?t))
+)
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
 ;; are the three important ones:
