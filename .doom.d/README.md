@@ -17,7 +17,7 @@
 |--- |--- |
 |s|search|
 |S|edit last query|
-|||narrow the search|
+|pipe symbol|narrow the search|
 |b|search bookmark|
 |B|edit bookmark before search|
 |j|jump to maildir|
@@ -60,7 +60,7 @@
 |Key|Description|
 |--- |--- |
 |a|execute some custom action on a header|
-|\|pipe message through shell command|
+|`\`|pipe message through shell command|
 |C-+,C–|increase / decrease the number of headers shown|
 |H|get help|
 |C-S-u|update mail & reindex|
