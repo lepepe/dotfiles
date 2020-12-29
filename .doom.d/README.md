@@ -1,12 +1,13 @@
 # Doom Emacs
 
-### mu4e
+## mu4e
 
-#### Setting Up mu4e
+### Setting Up mu4e
 
 **Required packages:**   
 - mu   
-- isync or mbsync   
+- isync or mbsync
+
 From the AUR: `yay -S mu mbsync`.   
 From oficial repository: `sudo pacman -S mu isync`.   
 
@@ -100,11 +101,9 @@ Group protonmail
 Channel inbox
 ```   
 
-Make sure directories for all accounts are inside home directory: Ex: `mkdir -p ~/Maildir/vertilux`.   
+Make sure directories for all accounts are created inside home directory: Ex: `mkdir -p ~/Maildir/vertilux`.   
 Then run:   
-Initialized mu:   
 - time mu init --maildir=~/Maildir --my-address='email@vertilux.com'   
-Sync emails with:   
 - time mbsync -c ~/.mbsyncrc -a   
 
 Inside Doom Emacs install mu4e package: `nvim .doom.d/packages.el` and add `(package! mu4e)` at the en of the file.   
@@ -268,3 +267,4 @@ Update `config.el` and add the block, this function then needs to be added to mu
 |C-c C-a|attach a file (pro-tip: drag & drop works as well)|
 |(mu4e-specific)||
 |C-S-u|update mail & reindex|
+
