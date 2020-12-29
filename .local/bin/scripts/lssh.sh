@@ -14,7 +14,7 @@ for x in {1..100} ; do
   sleep .1
 done ; echo
 
-PS3='Select Droplet: '
+PS3='Select machine: '
 select host in $hosts
 do
   echo "You have selected: $host"
