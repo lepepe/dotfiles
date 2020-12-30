@@ -5,5 +5,7 @@ These are very simple scripts that I use to access Digital Ocean droplets from t
 ## Prerequisites
 
 - doctl 
+- freerdp
+- nmap
 - scrot
 - i3lock
