@@ -119,6 +119,7 @@ alias dossh='~/.local/bin/scripts/dossh.sh'
 alias lssh='~/.local/bin/scripts/lssh.sh'
 alias mssql='~/.local/bin/scripts/mssql.sh'
 alias firep='~/.local/bin/scripts/firep.sh'
+alias rdp='~/.local/bin/scripts/rdp.sh'
 
 #alias ls='ls-icons -lah --color=auto'
 alias ls='exa -lah'
