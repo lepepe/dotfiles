@@ -47,8 +47,8 @@ call plug#end()
 
 inoremap jk <ESC>
 nmap <C-n> :NERDTreeToggle<CR>
-vmap ++ <plug>NERDCommenterToggle
-nmap ++ <plug>NERDCommenterToggle
+"vmap ++ <plug>NERDCommenterToggle
+"nmap ++ <plug>NERDCommenterToggle
 
 " open NERDTree automatically
 " autocmd StdinReadPre * let s:std_in=1
@@ -88,8 +88,11 @@ let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclu
 noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
 noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
 
-set relativenumber
+" When the relative line numbering is enabled, the current line is shown as 0; The lines above and below from the 
+" current line are incrementally numbered (1, 2, 3, etc.).
+"set relativenumber
 
+set number
 set smarttab
 set cindent
 set tabstop=2
@@ -116,7 +119,7 @@ function! SyncTree()
 endfunction
 
 " Highlight currently open buffer in NERDTree
-autocmd BufEnter * call SyncTree()
+"autocmd BufEnter * call SyncTree()
 
 let mapleader = " "
 let g:netrw_browse_split = 2
