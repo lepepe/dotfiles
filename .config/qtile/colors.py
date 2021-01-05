@@ -2,27 +2,28 @@ import pywal
 import os
 
 default = { 
-    'special': {
-        'background': '#0A0E17', 
-        'foreground': '#c6c4c2', 
-        'cursor': '#c6c4c2'
-    }, 'colors': {
-        'color0': '#0A0E17', 
-        'color1': '#B93D57', 
-        'color2': '#B49A73', 
-        'color3': '#156D8B', 
-        'color4': '#576F91', 
-        'color5': '#E25C8F', 
-        'color6': '#389BAE', 
-        'color7': '#c6c4c2', 
-        'color8': '#8a8987', 
-        'color9': '#B93D57', 
-        'color10': '#B49A73',
-        'color11': '#156D8B', 
-        'color12': '#576F91', 
-        'color13': '#E25C8F', 
-        'color14': '#389BAE', 
-        'color15': '#c6c4c2'
+    "special": {
+        "background": "#282936",
+        "foreground": "#e9e9f4",
+        "cursor": "#e9e9f4"
+    },
+    "colors": {
+        "color0": "#282936",
+        "color1": "#ea51b2",
+        "color2": "#00f769",
+        "color3": "#ebff87",
+        "color4": "#62d6e8",
+        "color5": "#b45bcf",
+        "color6": "#a1efe4",
+        "color7": "#e9e9f4",
+        "color8": "#4d4f68",
+        "color9": "#ea51b2",
+        "color10": "#00f769",
+        "color11": "#ebff87",
+        "color12": "#62d6e8",
+        "color13": "#b45bcf",
+        "color14": "#a1efe4",
+        "color15": "#f7f7fb"
     }
 }
 
