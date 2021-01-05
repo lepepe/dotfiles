@@ -229,9 +229,9 @@ for i, (name, kwargs) in enumerate(group_names, 1):
     keys.append(Key([mod], str(i), lazy.group[name].toscreen()))        # Switch to another group
     keys.append(Key([mod, "shift"], str(i), lazy.window.togroup(name))) # Send current window to another group
 
-layout_theme = {"border_width": 3,
+layout_theme = {"border_width": 2,
                 "margin": 6,
-                "border_focus": kolor02,
+                "border_focus": kolor01,
                 "border_normal": kolor00
                 }
 
@@ -258,7 +258,7 @@ layouts = [
          active_fg = kolor01,
          inactive_bg = kolor03,
          inactive_fg = "a0a0a0",
-         padding_y = 5,
+         padding_y = 20,
          section_top = 10,
          panel_width = 230
          ),
@@ -269,7 +269,7 @@ prompt = "{0}@{1}: ".format(os.environ["USER"], socket.gethostname())
 
 ##### DEFAULT WIDGET SETTINGS #####
 widget_defaults = dict(
-    font="Ubuntu Mono",
+    font="DejaVu Sans Mono",
     fontsize = 12,
     padding = 2,
     background=kolor02
@@ -284,24 +284,29 @@ def init_widgets_list():
                        foreground = kolorfg,
                        background = kolorbg
                        ),
-              widget.Image(
-                       filename = "~/.config/qtile/icons/python.png",
-                       mouse_callbacks = {'Button1': lambda qtile: qtile.cmd_spawn('dmenu_run')}
+              widget.TextBox(
+                       font = 'Font Awesome 5 Free',
+                       text = "",
+                       padding = 10,
+                       foreground = kolor05,
+                       background = kolorbg,
+                       fontsize = 20,
+                       mouse_callbacks = {'Button1': lambda qtile: qtile.cmd_spawn('rofi -show run')}
                        ),
               widget.GroupBox(
-                       font = "Ubuntu Bold",
+                       font = "DejaVu Sans Mono",
                        fontsize = 20,
                        margin_y = 3,
-                       margin_x = 0,
+                       margin_x = 3,
                        padding_y = 5,
                        padding_x = 3,
                        borderwidth = 3,
-                       active = kolor02,
-                       inactive = kolor02,
+                       active = kolor05,
+                       inactive = kolor05,
                        rounded = False,
-                       highlight_color = kolor01,
+                       highlight_color = kolorbg,
                        highlight_method = "line",
-                       this_current_screen_border = kolor03,
+                       this_current_screen_border = kolor05,
                        this_screen_border = kolor04,
                        other_current_screen_border = kolor00,
                        other_screen_border = kolor00,
@@ -310,19 +315,19 @@ def init_widgets_list():
                        ),
               widget.Prompt(
                        prompt = prompt,
-                       font = "Ubuntu Mono",
-                       padding = 10,
+                       font = "DejaVu Sans Mono",
+                       padding = 0,
                        foreground = kolorfg,
                        background = kolorbg
                        ),
               widget.Sep(
                        linewidth = 0,
-                       padding = 40,
+                       padding = 20,
                        foreground = kolor02,
                        background = kolor00
                        ),
               widget.WindowName(
-                       foreground = kolor06,
+                       foreground = kolor05,
                        background = kolor00,
                        padding = 0
                        ),
@@ -356,7 +361,7 @@ def init_widgets_list():
                        padding = 2,
                        foreground = kolorfg,
                        background = kolorbg,
-                       fontsize = 14
+                       fontsize = 17
                        ),
               widget.CheckUpdates(
                        distro = "Arch",
@@ -409,7 +414,7 @@ def init_widgets_list():
                        fontsize = 17
                        ),
               widget.Wlan(
-                       interface = "wlp5s0",
+                       interface = "wlp0s20f3",
                        format = '{essid} {quality}/70',
                        foreground = kolorfg,
                        background = kolorbg,
