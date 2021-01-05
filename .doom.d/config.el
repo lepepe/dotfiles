@@ -12,7 +12,7 @@
 (setq user-full-name "Jose Perez"
       user-mail-address "jose.perez@vertilux.com"
 
-      mu4e-get-mail-command "mbsync -c ~/.config/mu4e/mbsyncrc -a"
+      mu4e-get-mail-command "mbsync -c ~/.mbsyncrc -a"
       mu4e-update-interval 180
       mu4e-headers-auto-update t
       mu4e-main-buffer-hide-personal-addresses t
