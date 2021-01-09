@@ -221,6 +221,9 @@ widget_defaults = dict(
 )
 extension_defaults = widget_defaults.copy()
 
+# Conditioning widgets based on hostname
+# print(socket.gethostname())
+
 def init_widgets_list():
     widgets_list = [
         widget.Sep(
@@ -277,31 +280,21 @@ def init_widgets_list():
            padding = 0
         ),
         widget.TextBox(
-           text = "₿",
+           text = "",
            padding = 5,
-           foreground = kolorfg,
-           background = kolor13,
+           foreground = kolor05,
+           background = kolorbg,
            font = "Font Awesome 5 Free"
         ),
-        widget.BitcoinTicker(
-           foreground = kolorfg,
-           background = kolor13,
-           padding = 5
-        ),
-        widget.TextBox(
-           text = "|",
-           padding = 5,
-           foreground = kolorfg,
-           background = kolor13,
-           fontsize = 12
-        ),
-        widget.StockTicker(
-            apikey="53XB3QXK2XRJR9NF",
-            symbol="SNDL",
+        widget.Maildir(
+            maildir_path = '~/Maildir/vertilux',
+            sub_folders = ['INBOX'],
+            hide_when_empty = False,
+            mouse_callbacks = {'Button1': lambda qtile: qtile.cmd_spawn(myTerm + ' -e neomutt')},
             update_interval = 60,
             padding = 5,
-            foreground = kolorfg,
-            background = kolor13
+            foreground = kolor05,
+            background = kolorbg
         ),
         widget.TextBox(
            text = "",
@@ -369,9 +362,9 @@ def init_widgets_list():
         ),
         widget.TextBox(
           text = "Vol:",
-           foreground = kolorfg,
-           background = kolor13,
-          padding = 5
+            foreground = kolorfg,
+            background = kolor13,
+            padding = 5
         ),
         widget.Volume(
            foreground = kolorfg,
@@ -384,7 +377,10 @@ def init_widgets_list():
            padding = 5,
            charge_char = "",
            full_char = "",
+           discharge_char = "",
+           low_percentage = 0.1,
            format = '{char} {percent:2.0%}',
+           update_interval = 30,
            font = "Font Awesome 5 Free",
            low_foreground = kolor09
         ),
@@ -420,6 +416,55 @@ def init_widgets_list():
     ]
     return widgets_list
 
+def bottom_widgets_list():
+    widgets_list = [
+        widget.Sep(
+           linewidth = 0,
+           padding = 6,
+           foreground = kolorfg,
+           background = kolorbg
+        ),
+        widget.WindowName(
+           foreground = kolor05,
+           background = kolor00,
+           padding = 0
+        ),
+        widget.TextBox(
+           text = "₿",
+           padding = 5,
+           foreground = kolor05,
+           background = kolorbg,
+           font = "Font Awesome 5 Free"
+        ),
+        widget.BitcoinTicker(
+           foreground = kolor05,
+           background = kolorbg,
+           padding = 5
+        ),
+        widget.TextBox(
+           text = "|",
+           padding = 5,
+           foreground = kolor05,
+           background = kolorbg,
+           fontsize = 12
+        ),
+        widget.StockTicker(
+            apikey="53XB3QXK2XRJR9NF",
+            symbol="SNDL",
+            update_interval = 60,
+            padding = 5,
+            foreground = kolor05,
+            background = kolorbg
+        ),
+        widget.Sep(
+           linewidth = 0,
+           padding = 6,
+           foreground = kolorfg,
+           background = kolorbg
+        ),
+    ]
+    return widgets_list
+
 def init_widgets_screen1():
     widgets_screen1 = init_widgets_list()
     return widgets_screen1                       # Slicing removes unwanted widgets on Monitors 1,3
@@ -430,7 +475,10 @@ def init_widgets_screen2():
 
 def init_screens():
     return [
-        Screen(top=bar.Bar(widgets=init_widgets_screen1(), opacity=1.0, size=20))
+        Screen(
+            top=bar.Bar(widgets=init_widgets_screen1(), opacity=1.0, size=20),
+            bottom=bar.Bar(widgets=bottom_widgets_list(), opacity=0.9, size=20)
+        )
         #Screen(top=bar.Bar(widgets=init_widgets_screen2(), opacity=1.0, size=20)),
         #Screen(top=bar.Bar(widgets=init_widgets_screen1(), opacity=1.0, size=20))
     ]
