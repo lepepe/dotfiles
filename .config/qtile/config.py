@@ -177,12 +177,14 @@ keys = [
 ]
 
 group_names = [
-    ("", {'layout': 'monadtall'}),
-    ("", {'layout': 'monadtall'}),
-    ("", {'layout': 'floating'}),
-    ("", {'layout': 'monadtall'}),
-    ("", {'layout': 'monadtall'}),
-    ("", {'layout': 'floating'})
+    ("1", {'layout': 'monadtall'}),
+    ("2", {'layout': 'monadtall'}),
+    ("3", {'layout': 'floating'}),
+    ("4", {'layout': 'monadtall'}),
+    ("5", {'layout': 'monadtall'}),
+    ("6", {'layout': 'floating'}),
+    ("7", {'layout': 'floating'}),
+    ("8", {'layout': 'floating'})
 ]
 
 groups = [Group(name, **kwargs) for name, kwargs in group_names]
@@ -229,7 +231,7 @@ def init_widgets_list():
         ),
         widget.TextBox(
            font = 'Font Awesome 5 Free',
-           text = "",
+           text = "",
            padding = 10,
            foreground = kolor05,
            background = kolorbg,
@@ -238,7 +240,7 @@ def init_widgets_list():
         ),
         widget.GroupBox(
            font = "DejaVu Sans Mono",
-           fontsize = 20,
+           fontsize = 12,
            margin_y = 3,
            margin_x = 3,
            padding_y = 5,
@@ -275,36 +277,64 @@ def init_widgets_list():
            padding = 0
         ),
         widget.TextBox(
-           text = " ₿",
-           padding = 0,
+           text = "₿",
+           padding = 5,
            foreground = kolorfg,
-           background = kolorbg,
-           fontsize = 12
+           background = kolor13,
+           font = "Font Awesome 5 Free"
         ),
         widget.BitcoinTicker(
            foreground = kolorfg,
-           background = kolorbg,
+           background = kolor13,
            padding = 5
         ),
         widget.TextBox(
-           text = " ",
-           padding = 2,
+           text = "|",
+           padding = 5,
            foreground = kolorfg,
-           background = kolorbg,
-           fontsize = 17
+           background = kolor13,
+           fontsize = 12
+        ),
+        widget.StockTicker(
+            apikey="53XB3QXK2XRJR9NF",
+            symbol="SNDL",
+            update_interval = 60,
+            padding = 5,
+            foreground = kolorfg,
+            background = kolor13
+        ),
+        widget.TextBox(
+           text = "",
+           padding = 5,
+           foreground = kolorfg,
+           background = kolor08,
+           font = "Font Awesome 5 Free"
         ),
         widget.ThermalSensor(
            foreground = kolorfg,
-           background = kolorbg,
+           background = kolor08,
            threshold = 90,
            padding = 5
         ),
         widget.TextBox(
-           text = " ⟳",
-           padding = 2,
+           text = "| ",
            foreground = kolorfg,
-           background = kolorbg,
-           fontsize = 17
+           background = kolor08,
+           padding = 5,
+           font = "Font Awesome 5 Free"
+        ),
+        widget.Memory(
+           mouse_callbacks = {'Button1': lambda qtile: qtile.cmd_spawn(myTerm + ' -e htop')},
+           padding = 5,
+           foreground = kolorfg,
+           background = kolor08
+        ),
+        widget.TextBox(
+           text = "⟳",
+           padding = 5,
+           foreground = kolorfg,
+           background = kolor13,
+           font = "Font Awesome 5 Free"
         ),
         widget.CheckUpdates(
            distro = "Arch",
@@ -313,74 +343,73 @@ def init_widgets_list():
            colour_have_updates = kolorfg,
            colour_no_updates = kolorfg,
            foreground = kolorfg,
-           background = kolorbg
+           background = kolor13
         ),
         widget.TextBox(
            text = "Updates",
            padding = 5,
            mouse_callbacks = {'Button1': lambda qtile: qtile.cmd_spawn(myTerm + ' -e sudo pacman -Syu')},
            foreground = kolorfg,
-           background = kolorbg
+           background = kolor13
         ),
         widget.TextBox(
-           text = "  ",
+           text = "",
            foreground = kolorfg,
-           background = kolorbg,
-           padding = 0,
-           fontsize = 17
-        ),
-        widget.Memory(
-           foreground = kolorfg,
-           background = kolorbg,
-           mouse_callbacks = {'Button1': lambda qtile: qtile.cmd_spawn(myTerm + ' -e htop')},
-           padding = 5
-        ),
-        widget.TextBox(
-           text = " ",
-           foreground = kolorfg,
-           background = kolorbg,
-           padding = 0,
-           fontsize = 17
+           background = kolor08,
+           padding = 5,
+           font = "Font Awesome 5 Free"
         ),
         widget.Wlan(
            interface = "wlp0s20f3",
            format = '{essid} {quality}/70',
            foreground = kolorfg,
-           background = kolorbg,
+           background = kolor08,
            padding = 5,
            mouse_callbacks = {'Button1': lambda qtile: qtile.cmd_spawn(myTerm + ' -e nmcli device wifi list')}
         ),
         widget.TextBox(
-          text = " Vol:",
+          text = "Vol:",
            foreground = kolorfg,
-           background = kolorbg,
-          padding = 0
+           background = kolor13,
+          padding = 5
         ),
         widget.Volume(
            foreground = kolorfg,
-           background = kolorbg,
+           background = kolor13,
            padding = 5
+        ),
+        widget.Battery(
+           foreground = kolorfg,
+           background = kolor08,
+           padding = 5,
+           charge_char = "",
+           full_char = "",
+           format = '{char} {percent:2.0%}',
+           font = "Font Awesome 5 Free",
+           low_foreground = kolor09
         ),
         widget.CurrentLayoutIcon(
            custom_icon_paths = [os.path.expanduser("~/.config/qtile/icons")],
            foreground = kolorfg,
-           background = kolorbg,
-           padding = 0,
+           background = kolor13,
+           padding = 5,
            scale = 0.7
         ),
         widget.CurrentLayout(
            foreground = kolorfg,
-           background = kolorbg,
+           background = kolor13,
            padding = 5
         ),
         widget.Clock(
            foreground = kolor01,
            background = kolorbg,
-           format = "%B %d - %H:%M"
+           format = " %m/%d -  %H:%M",
+           padding = 5,
+           font = "Font Awesome 5 Free",
         ),
         widget.Sep(
            linewidth = 0,
-           padding = 10,
+           padding = 5,
            foreground = kolorfg,
            background = kolorbg,
         ),
@@ -401,9 +430,9 @@ def init_widgets_screen2():
 
 def init_screens():
     return [
-        Screen(top=bar.Bar(widgets=init_widgets_screen1(), opacity=1.0, size=20)),
-        Screen(top=bar.Bar(widgets=init_widgets_screen2(), opacity=1.0, size=20)),
         Screen(top=bar.Bar(widgets=init_widgets_screen1(), opacity=1.0, size=20))
+        #Screen(top=bar.Bar(widgets=init_widgets_screen2(), opacity=1.0, size=20)),
+        #Screen(top=bar.Bar(widgets=init_widgets_screen1(), opacity=1.0, size=20))
     ]
 
 if __name__ in ["config", "__main__"]:
