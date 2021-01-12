@@ -190,7 +190,7 @@ dracula.draw.blood(c, {
 })
 
 # commands like :open -t and :open -w .
-c.url.default_page = 'file:///home/lepepe/.surf/html/homepage.html'
+c.url.default_page = 'file:///home/lepepe/.config/startpage/homepage.html'
 
 # Bindings
 config.bind('M', 'hint links spawn alacritty -e youtube-viewer --player=mpv {hint-url}')
