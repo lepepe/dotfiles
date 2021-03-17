@@ -110,6 +110,7 @@ alias trss='transmission-rss'
 alias xup='xrdb .Xresources'
 alias pman='sudo pacman'
 alias pip='sudo pip'
+alias pip38='/home/lepepe/.pyenv/versions/3.8.5/bin/pip'
 alias sn='sncli'
 alias td='calcurse'
 alias sptd='systemctl --user enable spotifyd.service'
@@ -133,3 +134,5 @@ source /usr/share/zsh/plugins/zsh-you-should-use/you-should-use.plugin.zsh 2>/de
 
 neofetch
 eval "$(starship init zsh)"
+
+eval "$(pyenv init -)"

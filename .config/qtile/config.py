@@ -3,6 +3,7 @@ import os
 import re
 import socket
 import subprocess
+from libqtile import qtile
 from libqtile.config import Key, Screen, Group, Drag, Click
 from libqtile.command import lazy
 from libqtile import layout, bar, widget, hook
@@ -239,7 +240,7 @@ def init_widgets_list():
            foreground = kolor05,
            background = kolorbg,
            fontsize = 20,
-           mouse_callbacks = {'Button1': lambda qtile: qtile.cmd_spawn('rofi -show run')}
+           mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn('rofi -show run')}
         ),
         widget.GroupBox(
            font = "DejaVu Sans Mono",
@@ -290,7 +291,7 @@ def init_widgets_list():
             maildir_path = '~/Maildir/vertilux',
             sub_folders = ['INBOX'],
             hide_when_empty = False,
-            mouse_callbacks = {'Button1': lambda qtile: qtile.cmd_spawn(myTerm + ' -e neomutt')},
+            mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(myTerm + ' -e neomutt')},
             update_interval = 60,
             padding = 5,
             foreground = kolor05,
@@ -317,7 +318,7 @@ def init_widgets_list():
            font = "Font Awesome 5 Free"
         ),
         widget.Memory(
-           mouse_callbacks = {'Button1': lambda qtile: qtile.cmd_spawn(myTerm + ' -e htop')},
+                mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(myTerm + ' -e htop')},
            padding = 5,
            foreground = kolorfg,
            background = kolor08
@@ -330,20 +331,12 @@ def init_widgets_list():
            font = "Font Awesome 5 Free"
         ),
         widget.CheckUpdates(
-           distro = "Arch",
-           display_format = "{updates}",
-           update_interval = 900,
-           colour_have_updates = kolorfg,
-           colour_no_updates = kolorfg,
-           foreground = kolorfg,
-           background = kolor13
-        ),
-        widget.TextBox(
-           text = "Updates",
-           padding = 5,
-           mouse_callbacks = {'Button1': lambda qtile: qtile.cmd_spawn(myTerm + ' -e sudo pacman -Syu')},
-           foreground = kolorfg,
-           background = kolor13
+            update_interval = 1800,
+            distro = "Arch",
+            display_format = "{updates} Updates",
+            foreground = kolorfg,
+            mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(myTerm + ' -e sudo pacman -Syu')},
+            background = kolor13
         ),
         widget.TextBox(
            text = "",
@@ -358,7 +351,7 @@ def init_widgets_list():
            foreground = kolorfg,
            background = kolor08,
            padding = 5,
-           mouse_callbacks = {'Button1': lambda qtile: qtile.cmd_spawn(myTerm + ' -e nmcli device wifi list')}
+           mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(myTerm + ' -e nmcli device wifi list')}
         ),
         widget.TextBox(
           text = "Vol:",
@@ -448,13 +441,13 @@ def bottom_widgets_list():
            background = kolorbg,
            fontsize = 12
         ),
-        widget.StockTicker(
-            apikey="53XB3QXK2XRJR9NF",
-            symbol="SNDL",
-            update_interval = 60,
-            padding = 5,
+        widget.GenPollText(
+            background = kolorbg,
             foreground = kolor05,
-            background = kolorbg
+            update_interval=30,
+            padding = 5,
+            func = lambda: subprocess.check_output(os.path.expanduser("/home/lepepe/.local/bin/scripts/stock.py")).decode(),
+            fontsize = 12
         ),
         widget.Sep(
            linewidth = 0,
@@ -521,6 +514,7 @@ floating_layout = layout.Floating(float_rules=[
     {'wmclass': 'Simplenote'},
     {'wmclass': 'Lxappearance'},
     {'wmclass': 'Bitwarden'},
+    {'wmclass': 'xfreerdp'},
 ])
 auto_fullscreen = True
 focus_on_window_activation = "smart"
