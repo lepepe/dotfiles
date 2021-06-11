@@ -511,10 +511,13 @@ floating_layout = layout.Floating(float_rules=[
     {'wmclass': 'Pavucontrol'},
     {'wmclass': 'zoom'},
     {'wmclass': 'Signal'},
+    {'wmclass': 'arandr'},
+    {'wmclass': 'Ferdi'},
     {'wmclass': 'Simplenote'},
     {'wmclass': 'Lxappearance'},
     {'wmclass': 'Bitwarden'},
     {'wmclass': 'xfreerdp'},
+    {'wmclass': 'libreoffice'},
 ])
 auto_fullscreen = True
 focus_on_window_activation = "smart"
