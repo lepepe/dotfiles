@@ -12,7 +12,7 @@ do
   echo -e "Enter username: \c"
   read user
 
-  xfreerdp -g 75% -d vertilux -u $user $host
+  xfreerdp -g 1280x1024 -d vertilux -u $user $host
 
   break
 done
