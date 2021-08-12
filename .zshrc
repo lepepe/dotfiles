@@ -122,12 +122,14 @@ alias mssql='~/.local/bin/scripts/mssql.sh'
 alias firep='~/.local/bin/scripts/firep.sh'
 alias rdp='~/.local/bin/scripts/rdp.sh'
 alias webcam='~/.local/bin/scripts/iphone_cam.sh'
+alias vxcloud='~/.local/bin/scripts/vxcloud.sh'
 
 #alias ls='ls-icons -lah --color=auto'
 alias ls='exa -lah'
 alias grep='grep --color=auto'
 
 alias dotfiles='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
+alias passgen='< /dev/urandom tr -dc A-Za-z0-9 | head -c10; echo'
 
 # Load zsh-syntax-highlighting; should be last.
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null

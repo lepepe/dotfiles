@@ -44,9 +44,9 @@ kolor15 = kolors['colors']['color15']
 keys = [
     ### The essentials
     Key(
-        [mod], "Return",
-        lazy.spawn(myTerm),
-        desc='Launches Terminal'
+        [mod], "Return", 
+        lazy.spawn(myTerm), 
+        desc=f"Launches: {myTerm}"
     ),
     Key(
         [mod], "d",
@@ -109,22 +109,22 @@ keys = [
     Key(
         [mod], "n",
         lazy.layout.normalize(),
-        desc='normalize window size ratios'
+        desc='Normalize window size ratios'
     ),
     Key(
         [mod], "m",
         lazy.layout.maximize(),
-        desc='toggle window between minimum and maximum sizes'
+        desc='Toggle window between minimum and maximum sizes'
     ),
     Key(
         [mod, "shift"], "f",
         lazy.window.toggle_floating(),
-        desc='toggle floating'
+        desc='Toggle floating'
     ),
     Key(
         [mod, "shift"], "m",
         lazy.window.toggle_fullscreen(),
-        desc='toggle fullscreen'
+        desc='Toggle fullscreen'
     ),
     ### Stack controls
     Key(
@@ -158,22 +158,27 @@ keys = [
     Key(
         [mod, "mod1"], "e",
         lazy.spawn(myTerm+" -e neomutt"),
-        desc='neomutt'
-    ),
-    Key(
-        [mod, "mod1"], "t",
-        lazy.spawn(myTerm+" -e sh ./scripts/tig-script.sh"),
-        desc='tig'
+        desc='Launches neomutt'
     ),
     Key(
         [mod, "shift"], "s",
         lazy.spawn(myTerm+" -e sncli"),
-        desc='SimpleNote CLI'
+        desc='Launches SimpleNote CLI'
     ),
     Key(
         [mod, "shift"], "y",
-        lazy.spawn(myTerm+" -e youtube-viewer"),
-        desc='youtube-viewer'
+        lazy.spawn(myTerm+" -e youtube-viewer --player=mpv -n"),
+        desc='Launhces youtube viewer'
+    ),
+    Key(
+        ["mod1", "control"], "f",
+        lazy.spawn("flameshot gui"),
+        desc='Launches flameshot'
+    ),
+    Key(
+        [mod, "control"], "k",
+        lazy.spawn(myTerm+" -e python /home/lepepe/.config/qtile/keys.py"),
+        desc='Display keybindings'
     ),
 ]
 
@@ -518,6 +523,8 @@ floating_layout = layout.Floating(float_rules=[
     {'wmclass': 'Bitwarden'},
     {'wmclass': 'xfreerdp'},
     {'wmclass': 'libreoffice'},
+    {'wmclass': 'Blueman-manager'},
+    {'wmclass': 'Blueman-applet'}
 ])
 auto_fullscreen = True
 focus_on_window_activation = "smart"
