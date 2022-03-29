@@ -80,7 +80,6 @@
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type t)
 
-
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
 ;; - `load!' for loading external *.el files relative to this one
@@ -97,3 +96,64 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+
+;; Customs variables
+;;
+;; Transparency
+(set-frame-parameter (selected-frame) 'alpha '(90 95))
+(add-to-list 'default-frame-alist '(alpha 90 95))
+
+(after! org
+  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+  (setq org-directory "~/Org/"
+        org-agenda-files '("~/Org/agenda.org")
+        org-default-notes-file (expand-file-name "notes.org" org-directory)
+        org-ellipsis " ▼ "
+        org-log-done 'time
+        org-journal-dir "~/Org/journal/"
+        org-journal-date-format "%B %d, %Y (%A) "
+        org-journal-file-format "%Y-%m-%d.org"
+        org-hide-emphasis-markers t
+        org-todo-keywords        ; This overwrites the default Doom org-todo-keywords
+          '((sequence
+             "TODO(t)"           ; A task that is ready to be tackled
+             "BLOG(b)"           ; Blog writing assignments
+             "GYM(g)"            ; Things to accomplish at the gym
+             "PROJ(p)"           ; A project that contains other tasks
+             "VIDEO(v)"          ; Video assignments
+             "WAIT(w)"           ; Something is holding up this task
+             "|"                 ; The pipe necessary to separate "active" states and "inactive" states
+             "DONE(d)"           ; Task has been completed
+             "CANCELLED(c)" ))) ; Task has been cancelled
+
+  ; Set auth-resource default source as .authinfo
+  (setq auth-sources
+        '((:source "~/.authinfo"))))
+
+(defun apis_auth (&rest search-spec)
+
+  (dolist (default '((:max . 1) (:require . (:secret))))
+    (plist-put search-spec (car default) (cdr default)))
+
+  (let ((entry (nth 0 (apply 'auth-source-search search-spec))))
+    (mapcar (lambda (e)
+              (let ((prop  (car e))
+                    (value (if (functionp (cadr e))
+                               (funcall (cadr e))
+                             (cadr e))))
+                (cons prop value)))
+            (seq-partition entry 2))))
+
+
+(use-package slack
+  :commands (slack-start)
+  :init
+  (setq slack-buffer-emojify t) ;; if you want to enable emoji, default nil
+  (setq slack-prefer-current-team t)
+  :config
+  (slack-register-team
+   :name "vertilux"
+   :default t
+   :token "xoxc-215631003570-218617134611-2409437850770-538b64ae6414b127e5d9cba57280d6bd72faa77157d51e63c5815941f1f71c91"
+   :subscribed-channels '(vertilux)
+   :full-and-display-names t))

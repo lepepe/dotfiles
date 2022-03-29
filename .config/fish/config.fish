@@ -28,5 +28,19 @@ alias grep='grep --color=auto'
 
 alias dotfiles='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 
+# Import colorscheme from 'wal' asynchronously
+# &   # Run the process in the background.
+# ( ) # Hide shell job control messages.
+cat ~/.cache/wal/sequences
+
 neofetch
 starship init fish | source
+
+set -x PYENV_ROOT $HOME/.pyenv
+set -x PATH $PYENV_ROOT/shims $PATH
+set -x PATH $PYENV_ROOT/bin $PATH
+
+if which pyenv 1>/dev/null 2>&1
+    pyenv init - | source
+end
+

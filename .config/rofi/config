@@ -1,3 +1,4 @@
 # Dark theme.
-# rofi.theme: ~/.cache/wal/colors-rofi-dark.rasi
-rofi.theme: ~/.config/rofi/dracula.rasi
+#rofi.theme: ~/.cache/wal/colors-rofi-dark.rasi
+#rofi.theme: ~/.config/rofi/dracula.rasi
+rofi.theme: ~/.config/rofi/dracula2.rasi

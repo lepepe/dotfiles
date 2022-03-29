@@ -46,9 +46,9 @@ foreground = ${colors.foreground}
 line-size = 2
 
 font-0 = "URWGothic-Book:size=10"
-font-1 = "Font Awesome 5 Free:style=Solid:pixelsize=11"
-font-2 = "Font Awesome 5 Free:style=Regular:pixelsize=11"
-font-3 = "Font Awesome 5 Brands:pixelsize=11"
+font-1 = "Font Awesome 6 Free:style=Solid:pixelsize=11"
+font-2 = "Font Awesome 6 Free:style=Regular:pixelsize=11"
+font-3 = "Font Awesome 6 Brands:pixelsize=11"
 font-4 = font\-logos:size=16;3
 font-5 = "DejaVu Sans Mono:size=11"
 
@@ -161,7 +161,7 @@ label-song-ellipsis = true
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = " "
+format-prefix = "CPU:   "
 format-padding = 2
 format-foreground = ${colors.foreground}
 label = %percentage%%

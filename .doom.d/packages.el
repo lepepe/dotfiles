@@ -49,6 +49,10 @@
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
 
+;;(package! mu4e)
 (package! evil-tutor)
-
-(package! mu4e)
+(package! org-tree-slide
+  :recipe (:host github :repo "takaxp/org-tree-slide"))
+(package! org-bullets)
+(package! slack
+  :recipe (:host github :repo "yuya373/emacs-slack"))

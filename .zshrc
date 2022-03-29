@@ -109,7 +109,7 @@ alias trc='transmission-remote-cli'
 alias trss='transmission-rss'
 alias xup='xrdb .Xresources'
 alias pman='sudo pacman'
-alias pip='sudo pip'
+#alias pip='sudo pip'
 alias pip38='/home/lepepe/.pyenv/versions/3.8.5/bin/pip'
 alias sn='sncli'
 alias td='calcurse'
@@ -122,7 +122,7 @@ alias mssql='~/.local/bin/scripts/mssql.sh'
 alias firep='~/.local/bin/scripts/firep.sh'
 alias rdp='~/.local/bin/scripts/rdp.sh'
 alias webcam='~/.local/bin/scripts/iphone_cam.sh'
-alias vxcloud='~/.local/bin/scripts/vxcloud.sh'
+alias vxcloud='~/Documents/apps/vxcloud-cli/vxcloud.sh'
 
 #alias ls='ls-icons -lah --color=auto'
 alias ls='exa -lah'
@@ -138,4 +138,10 @@ source /usr/share/zsh/plugins/zsh-you-should-use/you-should-use.plugin.zsh 2>/de
 neofetch
 eval "$(starship init zsh)"
 
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+
+export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"

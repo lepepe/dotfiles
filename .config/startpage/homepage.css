@@ -86,7 +86,7 @@ body {
     margin: 0em .5em;
 }
 .bookmark-inner-container {
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
     height: 80%;
     vertical-align: top;
 }
