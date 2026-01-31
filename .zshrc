@@ -7,21 +7,21 @@ export ZSH=/usr/share/oh-my-zsh
 #ZSH_THEME="powerlevel9k/powerlevel9k"
 ZSH_THEME="robbyrussell"
 
-plugins=(archlinux 
-	asdf 
-	bundler 
-	docker 
-	jsontools 
-	vscode 
-	web-search 
-	tig 
-	gitfast 
-	colored-man-pages 
-	colorize 
-	command-not-found 
-	cp 
-	dirhistory 
-	sudo 
+plugins=(archlinux
+	asdf
+	bundler
+	docker
+	jsontools
+	vscode
+	web-search
+	tig
+	gitfast
+	colored-man-pages
+	colorize
+	command-not-found
+	cp
+	dirhistory
+	sudo
 	)
 # /!\ zsh-syntax-highlighting and then zsh-autosuggestions must be at the end
 
@@ -142,6 +142,26 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
 
-export PATH="$HOME/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+# cagor for spotify-tui
+export PATH="$HOME/.cargo/bin:$PATH"
+
+#export PATH="$HOME/.pyenv/bin:$PATH"
+#eval "$(pyenv init -)"
+#eval "$(pyenv virtualenv-init -)"
+#
+export PATH="$HOME/.local/bin:$PATH"
+eval "$(~/.rbenv/bin/rbenv init - zsh)"
+eval "$(rbenv init - zsh)"
+
+# opencode
+export PATH=/home/lepepe/.opencode/bin:$PATH
+
+# dotnet
+export PATH="$PATH:$HOME/.dotnet"
+
+# bun completions
+[ -s "/home/lepepe/.bun/_bun" ] && source "/home/lepepe/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
