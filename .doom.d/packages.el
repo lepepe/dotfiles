@@ -54,5 +54,3 @@
 (package! org-tree-slide
   :recipe (:host github :repo "takaxp/org-tree-slide"))
 (package! org-bullets)
-(package! slack
-  :recipe (:host github :repo "yuya373/emacs-slack"))

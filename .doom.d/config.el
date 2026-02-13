@@ -4,54 +4,11 @@
 ;; sync' after modifying this file!
 
 
-(add-to-list 'load-path "/usr/local/share/emacs/site-lisp/mu4e")
+;;(add-to-list 'load-path "/usr/local/share/emacs/site-lisp/mu4e")
 ;;(require 'smtpmail)
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets.
-(setq user-full-name "Jose Perez"
-      user-mail-address "jose.perez@vertilux.com"
-
-      mu4e-get-mail-command "mbsync -c ~/.mbsyncrc -a"
-      mu4e-update-interval 180
-      mu4e-headers-auto-update t
-      mu4e-main-buffer-hide-personal-addresses t
-      message-send-mail-function 'smtpmail-send-it
-      starttls-use-gnutls t
-      smtpmail-starttls-credentials '(("smtp.gmail.com" 587 nil nil))
-      mu4e-sent-folder "/vertilux/sent"
-      mu4e-drafts-folder "/vertilux/draft"
-      mu4e-trash-folder "/vertilux/trash"
-      mu4e-maildir-shortcuts
-      '(("/vertilux/Inbox"    . ?i)
-        ("/vertilux/sent"     . ?s)
-        ("/vertilux/draft"    . ?d)
-        ("/vertilux/trash"    . ?t)
-        ("/protonmail/INBOX"  . ?p))
-)
-
-(load "~/.doom.d/email")
-
-(defun my-mu4e-set-account ()
-  "Set the account for composing a message."
-  (let* ((account
-    (if mu4e-compose-parent-message
-      (let ((maildir (mu4e-message-field mu4e-compose-parent-message :maildir)))
-        (string-match "/\\(.*?\\)/" maildir)
-        (match-string 1 maildir))
-        (completing-read (format "Compose with account: (%s) "
-           (mapconcat #'(lambda (var) (car var))
-              my-mu4e-account-alist "/"))
-           (mapcar #'(lambda (var) (car var)) my-mu4e-account-alist)
-           nil t nil nil (caar my-mu4e-account-alist))))
-         (account-vars (cdr (assoc account my-mu4e-account-alist))))
-  (if account-vars
-    (mapc #'(lambda (var)
-      (set (car var) (cadr var)))
-        account-vars)
-    (error "No email account found"))))
-
-(add-hook 'mu4e-compose-pre-hook 'my-mu4e-set-account)
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
 ;; are the three important ones:
@@ -143,17 +100,3 @@
                              (cadr e))))
                 (cons prop value)))
             (seq-partition entry 2))))
-
-
-(use-package slack
-  :commands (slack-start)
-  :init
-  (setq slack-buffer-emojify t) ;; if you want to enable emoji, default nil
-  (setq slack-prefer-current-team t)
-  :config
-  (slack-register-team
-   :name "vertilux"
-   :default t
-   :token "xoxc-215631003570-218617134611-2409437850770-538b64ae6414b127e5d9cba57280d6bd72faa77157d51e63c5815941f1f71c91"
-   :subscribed-channels '(vertilux)
-   :full-and-display-names t))
