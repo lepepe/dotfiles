@@ -46,9 +46,9 @@ foreground = ${colors.foreground}
 line-size = 2
 
 font-0 = "URWGothic-Book:size=10"
-font-1 = "Font Awesome 6 Free:style=Solid:pixelsize=11"
-font-2 = "Font Awesome 6 Free:style=Regular:pixelsize=11"
-font-3 = "Font Awesome 6 Brands:pixelsize=11"
+font-1 = "Font Awesome 7 Free:style=Solid:pixelsize=11"
+font-2 = "Font Awesome 7 Free:style=Regular:pixelsize=11"
+font-3 = "Font Awesome 7 Brands:pixelsize=11"
 font-4 = font\-logos:size=16;3
 font-5 = "DejaVu Sans Mono:size=11"
 
@@ -72,7 +72,7 @@ override-redirect = false
 
 [module/launcher]
 type=custom/text
-content = 
+content = 
 content-font=5
 content-foreground=${colors.color4}
 content-padding=2
