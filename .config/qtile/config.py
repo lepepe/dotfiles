@@ -198,7 +198,7 @@ def init_widgets_list():
     widgets_list = [
         widget.Sep(linewidth=0, padding=6, foreground=kolorfg, background=kolorbg),
         widget.TextBox(
-            font="Font Awesome 7 Brands Solid",
+            font="Font Awesome 7 Brands",
             text=" ",
             padding=10,
             foreground=kolor05,

@@ -125,7 +125,7 @@ alias webcam='~/.local/bin/scripts/iphone_cam.sh'
 alias vxcloud='~/Documents/apps/vxcloud-cli/vxcloud.sh'
 
 #alias ls='ls-icons -lah --color=auto'
-alias ls='exa -lah'
+alias ls='exa -l --icons'
 alias grep='grep --color=auto'
 
 alias dotfiles='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
@@ -141,9 +141,6 @@ eval "$(starship init zsh)"
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
-
-# cagor for spotify-tui
-export PATH="$HOME/.cargo/bin:$PATH"
 
 #export PATH="$HOME/.pyenv/bin:$PATH"
 #eval "$(pyenv init -)"
@@ -165,3 +162,7 @@ export PATH="$PATH:$HOME/.dotnet"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
+
+# Local secrets (not tracked by git)
+[ -f ~/.secrets ] && source ~/.secrets
