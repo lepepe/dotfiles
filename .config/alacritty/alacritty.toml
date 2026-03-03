@@ -100,6 +100,9 @@ mods = "Shift"
 [scrolling]
 history = 5000
 
+[colors]
+transparent_background_colors = true
+
 [window]
 title = "Alacritty"
 opacity = 0.8
