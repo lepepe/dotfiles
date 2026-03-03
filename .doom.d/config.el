@@ -29,6 +29,15 @@
 ;;(setq doom-theme 'doom-one)
 (setq doom-theme 'doom-dracula)
 
+;; Cursor trail
+(use-package! beacon
+  :config
+  (beacon-mode 1)
+  (setq beacon-size 40
+        beacon-blink-duration 0.3
+        beacon-blink-delay 0.1
+        beacon-color "#bd93f9"))
+
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/org/")
